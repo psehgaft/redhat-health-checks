@@ -1,4 +1,5 @@
 - [Health Check Collection Scripts](sections/collect_intro.md)
+  - [Design Principles & Standards Alignment](sections/collect_design_principles.md)
   - [What `hc-collect` Actually Does](sections/collect_how_it_works.md)
   - [Authenticating](sections/collect_authenticating.md)
   - [Required Permissions](sections/collect_permissions.md)

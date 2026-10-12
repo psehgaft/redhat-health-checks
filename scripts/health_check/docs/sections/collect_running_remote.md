@@ -26,6 +26,8 @@ In most engagements, `hc_collect.sh` runs on a remote machine (bastion host, jum
 
 The entire output directory produced by `hc_collect.sh` — typically `./hc_results/` or wherever `--output-dir` pointed. It contains `manifest.json` plus all the category subdirectories.
 
+> Collected output is sensitive by nature (node IPs, RBAC bindings, identity-provider configuration). Transfers below run over SSH, which encrypts in transit — additionally encrypt the tarball at rest if your engagement requires it, and never commit `output/` (it is gitignored).
+
 ### Option A — tar + scp (most common)
 
 On the remote machine:

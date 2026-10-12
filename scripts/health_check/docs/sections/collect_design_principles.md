@@ -1,0 +1,7 @@
+The collection pipeline is built around a small set of principles that map to widely used architecture and security baselines:
+
+- **Least privilege (NIST SP 800-53 AC-6):** every capture is a read against the API (`oc get`, `oc exec` for live metrics); the only write is the ephemeral `oc debug` pod in `11_hardware`, removed automatically after each capture. The minimal RBAC role documented under [Required Permissions](#required-permissions) follows the same principle.
+- **Deterministic, auditable evaluation (ISO/IEC/IEEE 42010):** check results are computed from collected JSON by fixed rules — no model inference in the evaluation path — so every finding traces back to its evidence file, the exact command that produced it, and its timestamp via the `.meta.json` sidecars.
+- **Provenance by default:** every output file carries a metadata sidecar (command, script, report chapter, timestamp); `manifest.json` records the cluster endpoint and the full file inventory for the run.
+- **Fail-closed ingestion:** unknown or malformed captures are marked `_hc_error`, never silently dropped; the report generator surfaces them as `SKIPPED` with the reason preserved.
+- **Defense in depth for credentials:** kubeconfigs are bearer tokens — the pipeline never prints them, `.gitignore` excludes `output/`, `project.yaml`, and kubeconfig paths, and the documented auth flow prefers interactive prompts and isolated per-engagement kubeconfigs (see [Authenticating](#authenticating)).

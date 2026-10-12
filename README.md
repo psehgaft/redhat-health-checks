@@ -15,7 +15,7 @@ An OpenShift cluster or a must-gather goes in. A scored report, HTML, and PDF co
 
 | You are running | You need |
 |---|---|
-| `hc-collect` | `oc` on the host, and `python3` for categories `10` and `11` |
+| `hc-collect` | `oc` on the host; `python3` recommended (required for categories `10` and `11`) |
 | `setup`, `hc-report`, `hc-html`, `hc-pdf` | `make`, plus Podman or Docker |
 | `hc-push-scripts`, `hc-collect-remote`, `hc-fetch-results` | `ssh` and `rsync` on the host |
 | `HC_SUMMARY_CONCLUSION=1` or `hc-summary-conclusion` | `CURSOR_API_KEY` or `~/.config/arch-doc-gen/cursor_api_key` |

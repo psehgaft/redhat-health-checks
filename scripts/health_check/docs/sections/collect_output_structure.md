@@ -1,7 +1,7 @@
 ```
 output/hc_collect/
 ├── manifest.json                    ← collection summary (timestamp, file list, error count)
-├── skipped_commands.jsonl           ← per-command skip/error ledger (not ingested by the report)
+├── skipped_commands.jsonl           ← per-command skip/error ledger, supportshell path only (not ingested by the report)
 ├── 03_base_platform/
 │   ├── clusterversion.json
 │   ├── clusteroperators.json
